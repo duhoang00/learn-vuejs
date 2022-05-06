@@ -1,12 +1,7 @@
 import { defineStore } from "pinia";
 import isEmpty from "lodash/isEmpty";
 
-import type { TodoType } from "@/types";
-
-type addNewItemType = {
-  item: TodoType;
-  listType: "todo" | "doing" | "done";
-};
+import type { TodoType, AddNewItemType } from "@/types";
 
 export const useListsStore = defineStore({
   id: "lists",
@@ -19,7 +14,7 @@ export const useListsStore = defineStore({
     getTodoList: (state) => state.todo,
   },
   actions: {
-    addNewItem({ item, listType }: addNewItemType) {
+    addNewItem({ item, listType }: AddNewItemType) {
       if (isEmpty(item)) {
         return;
       }

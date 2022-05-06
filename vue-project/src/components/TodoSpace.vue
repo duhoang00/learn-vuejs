@@ -2,11 +2,12 @@
 import { ref, defineProps } from "vue";
 import uniqueId from "lodash/uniqueId";
 
+import type { ListType } from "@/types";
 import { useListsStore } from "@/stores/lists";
 import TodoItem from "./TodoItem.vue";
 
 const props = defineProps<{
-  listType: "todo" | "doing" | "done";
+  listType: ListType;
 }>();
 
 const lists = useListsStore();
