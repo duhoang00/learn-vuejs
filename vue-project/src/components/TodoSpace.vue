@@ -1,19 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import uniqueId from "lodash/uniqueId";
 
-import type { TodoType } from "@/types";
+import { useListsStore } from "@/stores/lists";
 import TodoItem from "./TodoItem.vue";
 
-const newTodo = ref("");
-const todoList = ref<TodoType[]>([]);
+const props = defineProps<{
+  listType: "todo" | "doing" | "done";
+}>();
 
-const addNewTodo = () => {
-  todoList.value.push({
-    id: uniqueId("todo-"),
-    name: newTodo.value,
+const lists = useListsStore();
+
+const list = lists.$state[props.listType];
+
+const newItem = ref("");
+
+const addNewItem = () => {
+  lists.addNewItem({
+    item: {
+      id: uniqueId("todo-"),
+      name: newItem.value,
+    },
+    listType: props.listType,
   });
-  newTodo.value = "";
+  newItem.value = "";
 };
 </script>
 
@@ -21,7 +31,7 @@ const addNewTodo = () => {
   <div class="space">
     <h2><slot name="name"></slot></h2>
 
-    <div v-for="item in todoList" :key="item.id">
+    <div v-for="item in list" :key="item.id">
       <TodoItem>
         <template #name> {{ item.name }} </template>
       </TodoItem>
@@ -32,8 +42,8 @@ const addNewTodo = () => {
         <div>
           <input
             type="text"
-            v-model="newTodo"
-            @change="addNewTodo"
+            v-model="newItem"
+            @change="addNewItem"
             placeholder="+New"
           />
         </div>

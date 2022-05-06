@@ -1,27 +1,18 @@
 <script setup lang="ts">
 import TodoSpace from "@/components/TodoSpace.vue";
-
-import { useListsStore } from "@/stores/lists";
-
-const lists = useListsStore();
-lists.addTodo({
-  id: "todo-1",
-  name: "he",
-});
-console.log(lists.$state.todo[0].name);
 </script>
 
 <template>
   <div class="todo">
     <h1 class="title">To-do list</h1>
     <div class="spaces">
-      <TodoSpace class="space">
+      <TodoSpace class="space" listType="todo">
         <template #name>Todo</template>
       </TodoSpace>
-      <TodoSpace class="space">
+      <TodoSpace class="space" listType="doing">
         <template #name>Doing</template>
       </TodoSpace>
-      <TodoSpace class="space">
+      <TodoSpace class="space" listType="done">
         <template #name>Done</template>
       </TodoSpace>
     </div>
