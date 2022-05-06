@@ -8,7 +8,7 @@ const todoList = ref<string[]>([]);
 
 const addNewTodo = () => {
   todoList.value.push(newTodo.value);
-  console.log(todoList);
+  newTodo.value = "";
 };
 </script>
 
@@ -29,7 +29,7 @@ const addNewTodo = () => {
             type="text"
             v-model="newTodo"
             @change="addNewTodo"
-            placeholder="Add a new todo"
+            placeholder="+New"
           />
         </div>
       </template>

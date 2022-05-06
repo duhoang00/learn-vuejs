@@ -4,6 +4,7 @@ import TodoSpace from "@/components/TodoSpace.vue";
 
 <template>
   <div class="todo">
+    <h1 class="title">To-do list</h1>
     <div class="spaces">
       <TodoSpace class="space">
         <template #name>Todo</template>
@@ -25,13 +26,16 @@ import TodoSpace from "@/components/TodoSpace.vue";
     align-items: center;
     margin-top: 5rem;
   }
+  .title {
+    text-align: center;
+  }
   .spaces {
     display: flex;
     flex-wrap: wrap;
   }
   .space {
     margin: 1rem;
-    flex: 0 0 10rem;
+    flex: 1 0 8rem;
   }
 }
 </style>
