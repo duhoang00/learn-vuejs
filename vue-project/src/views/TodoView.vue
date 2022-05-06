@@ -1,5 +1,15 @@
 <script setup lang="ts">
+// import { ref } from "vue";
+// import uniqueId from "lodash.uniqueid";
+
 import TodoSpace from "@/components/TodoSpace.vue";
+
+// ype todoType = {
+//   id: number;
+//   name: string;
+// };t
+
+// const todoList = ref<todoType[]>([]);
 </script>
 
 <template>
