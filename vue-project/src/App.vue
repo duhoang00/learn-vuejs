@@ -25,6 +25,7 @@ const msg = ref("You did it!");
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/todo">To-do</RouterLink>
       </nav>
     </div>
   </header>
