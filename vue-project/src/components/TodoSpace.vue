@@ -10,7 +10,6 @@ type todoType = {
 };
 
 const newTodo = ref("");
-// const todoList = ref<string[]>([]);
 const todoList = ref<todoType[]>([]);
 
 const addNewTodo = () => {
