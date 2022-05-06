@@ -2,15 +2,11 @@
 import { ref } from "vue";
 import uniqueId from "lodash/uniqueId";
 
+import type { TodoType } from "@/types";
 import TodoItem from "./TodoItem.vue";
 
-type todoType = {
-  id: string;
-  name: string;
-};
-
 const newTodo = ref("");
-const todoList = ref<todoType[]>([]);
+const todoList = ref<TodoType[]>([]);
 
 const addNewTodo = () => {
   todoList.value.push({

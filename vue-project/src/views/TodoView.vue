@@ -1,15 +1,14 @@
 <script setup lang="ts">
-// import { ref } from "vue";
-// import uniqueId from "lodash.uniqueid";
-
 import TodoSpace from "@/components/TodoSpace.vue";
 
-// ype todoType = {
-//   id: number;
-//   name: string;
-// };t
+import { useListsStore } from "@/stores/lists";
 
-// const todoList = ref<todoType[]>([]);
+const lists = useListsStore();
+lists.addTodo({
+  id: "todo-1",
+  name: "he",
+});
+console.log(lists.$state.todo[0].name);
 </script>
 
 <template>
