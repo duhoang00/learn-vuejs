@@ -7,4 +7,4 @@
 - Can change welcome
 
 - To-do list
-  ![alt text](https://github.com/duhoang00/learn-vuejs/blob/main/UI.png?raw=true)
+  ![alt text](https://github.com/duhoang00/learn-vuejs/blob/main/src/assets/UI.png?raw=true)
