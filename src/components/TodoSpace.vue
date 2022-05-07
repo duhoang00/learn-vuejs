@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 import uniqueId from "lodash/uniqueId";
 
 import type { ListType } from "@/types";

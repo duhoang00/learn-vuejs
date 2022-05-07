@@ -11,7 +11,7 @@
   background-color: rgba(255, 255, 255, 0.055);
   color: white;
 }
-.item >>> input {
+.item:deep() input {
   border: none;
   background-color: rgba(255, 255, 255, 0.055);
   color: white;
