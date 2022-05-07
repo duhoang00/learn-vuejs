@@ -40,14 +40,13 @@ const addNewItem = () => {
 
     <TodoItem>
       <template #name>
-        <div>
-          <input
-            type="text"
-            v-model="newItem"
-            @change="addNewItem"
-            placeholder="+New"
-          />
-        </div>
+        <input
+          class="input-new-item"
+          type="text"
+          v-model="newItem"
+          @change="addNewItem"
+          placeholder="+New"
+        />
       </template>
     </TodoItem>
   </div>
@@ -55,11 +54,12 @@ const addNewItem = () => {
 
 <style scoped>
 .space {
-  text-align: center;
+  text-align: left;
 }
 
 .space h2 {
-  background-color: whitesmoke;
-  color: black;
+  background-color: transparent;
+  color: white;
+  margin: 1rem;
 }
 </style>
