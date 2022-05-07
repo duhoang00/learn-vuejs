@@ -4,7 +4,7 @@ import { ref } from "vue";
 
 import HelloWorld from "@/components/HelloWorld.vue";
 
-const msg = ref("You did it!");
+const msg = ref("You can change this!");
 </script>
 
 <template>
