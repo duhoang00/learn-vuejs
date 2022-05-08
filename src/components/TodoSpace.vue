@@ -58,8 +58,8 @@ const addNewItem = () => {
 }
 
 .space h2 {
-  background-color: transparent;
-  color: white;
+  /* background-color: transparent; */
+  /* color: white; */
   margin: 1rem;
 }
 </style>

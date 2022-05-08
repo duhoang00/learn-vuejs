@@ -19,7 +19,7 @@ const msg = ref("You can change this!");
 
     <div class="wrapper">
       <HelloWorld :msg="msg" />
-      <h3>
+      <h3 class="input-msg">
         <input type="text" v-model="msg" />
       </h3>
       <nav>
@@ -42,6 +42,10 @@ const msg = ref("You can change this!");
   padding: 2rem;
 
   font-weight: normal;
+}
+
+.input-msg {
+  text-align: center;
 }
 
 header {

@@ -8,12 +8,14 @@
 .item {
   margin: 1rem;
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.055);
-  color: white;
+  box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px,
+    rgb(15 15 15 / 10%) 0px 2px 4px;
+  border-radius: 3px;
 }
 .item:deep() input {
   border: none;
-  background-color: rgba(255, 255, 255, 0.055);
-  color: white;
+  border-radius: 3px;
+  width: 100%;
+  border: none;
 }
 </style>
