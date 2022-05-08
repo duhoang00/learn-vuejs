@@ -35,7 +35,7 @@ import TodoSpace from "@/components/TodoSpace.vue";
   }
   .space {
     margin: 1rem;
-    flex: 0 1 8rem;
+    flex: 1 0 12rem;
   }
 }
 </style>
