@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import uniqueId from "lodash/uniqueId";
 
 import type { ListType } from "@/types";
@@ -11,14 +11,25 @@ const props = defineProps<{
   listType: ListType;
 }>();
 
-const lists = useListsStore();
+const listsStore = useListsStore();
 
-const list = lists.$state[props.listType];
+const list = ref(listsStore.$state[props.listType]);
+
+watch(
+  listsStore.$state,
+  (state) => {
+    // is there a better way to re-render
+    list.value = listsStore.$state[props.listType];
+    // update later
+    // localStorage.setItem("piniaState", JSON.stringify(state));
+  },
+  { deep: true }
+);
 
 const newItem = ref("");
 
 const addNewItem = () => {
-  lists.addNewItem({
+  listsStore.addNewItem({
     item: {
       id: uniqueId("todo-"),
       name: newItem.value,
@@ -37,8 +48,8 @@ const addNewItem = () => {
       <TodoItem>
         <template #name> {{ item.name }} </template>
       </TodoItem>
-      <DeleteItem>
-        <template #id></template>
+      <DeleteItem :id="item.id" :list-type="props.listType">
+        <template></template>
       </DeleteItem>
     </div>
 

@@ -6,7 +6,7 @@
 
 <style scoped>
 .item {
-  margin: 1rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px,
     rgb(15 15 15 / 10%) 0px 2px 4px;
