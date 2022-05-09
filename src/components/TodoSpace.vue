@@ -13,13 +13,13 @@ const props = defineProps<{
 
 const listsStore = useListsStore();
 
-const list = ref(listsStore.$state[props.listType]);
+const list = ref(listsStore.getTodos);
 
 watch(
   listsStore.$state,
   (state) => {
     // is there a better way to re-render
-    list.value = listsStore.$state[props.listType];
+    list.value = listsStore.getTodos;
     // update later
     // localStorage.setItem("piniaState", JSON.stringify(state));
   },
@@ -33,8 +33,8 @@ const addNewItem = () => {
     item: {
       id: uniqueId("todo-"),
       name: newItem.value,
+      listType: props.listType,
     },
-    listType: props.listType,
   });
   newItem.value = "";
 };
@@ -45,25 +45,18 @@ const addNewItem = () => {
     <h2><slot name="name"></slot></h2>
 
     <div v-for="item in list" :key="item.id" class="wrapper-item">
-      <TodoItem>
-        <template #name> {{ item.name }} </template>
-      </TodoItem>
-      <DeleteItem :id="item.id" :list-type="props.listType">
-        <template></template>
+      <TodoItem v-if="item.listType === props.listType" :item="item"></TodoItem>
+      <DeleteItem v-if="item.listType === props.listType" :item="item">
       </DeleteItem>
     </div>
 
-    <TodoItem>
-      <template #name>
-        <input
-          class="input-new-item"
-          type="text"
-          v-model="newItem"
-          @change="addNewItem"
-          placeholder="+New"
-        />
-      </template>
-    </TodoItem>
+    <input
+      class="input-new-item"
+      type="text"
+      v-model="newItem"
+      @change="addNewItem"
+      placeholder="+New"
+    />
   </div>
 </template>
 
@@ -74,6 +67,18 @@ const addNewItem = () => {
 
 .space h2 {
   margin: 1rem;
+}
+
+.input-new-item {
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0.5rem;
+  box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px,
+    rgb(15 15 15 / 10%) 0px 2px 4px;
+  border-radius: 3px;
 }
 
 .wrapper-item {

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { ListType } from "@/types";
+import type { TodoType } from "@/types";
 import { useListsStore } from "@/stores/lists";
 
 const props = defineProps<{
-  id: string;
-  listType: ListType;
+  item: TodoType;
 }>();
 
 const lists = useListsStore();
@@ -13,8 +12,7 @@ const { deleteItem } = lists;
 
 const onDeleteItem = () => {
   deleteItem({
-    id: props.id,
-    listType: props.listType,
+    id: props.item.id,
   });
 };
 </script>

@@ -6,42 +6,26 @@ import type { TodoType, AddNewItemType, DeleteItemType } from "@/types";
 export const useListsStore = defineStore({
   id: "lists",
   state: () => ({
-    todo: [] as TodoType[],
-    doing: [] as TodoType[],
-    done: [] as TodoType[],
+    // todo: [] as TodoType[],
+    // doing: [] as TodoType[],
+    // done: [] as TodoType[],
+    todos: [] as TodoType[],
   }),
   getters: {
-    getTodoList: (state) => state.todo,
-    getDoingList: (state) => state.doing,
-    getDoneList: (state) => state.done,
+    // getTodoList: (state) => state.todo,
+    // getDoingList: (state) => state.doing,
+    // getDoneList: (state) => state.done,
+    getTodos: (state) => state.todos,
   },
   actions: {
-    addNewItem({ item, listType }: AddNewItemType) {
-      if (isEmpty(item)) {
-        return;
-      }
-      if (listType === "todo") {
-        this.todo.push(item);
-      }
-      if (listType === "doing") {
-        this.doing.push(item);
-      }
-      if (listType === "done") {
-        this.done.push(item);
+    addNewItem({ item }: AddNewItemType) {
+      if (!isEmpty(item)) {
+        this.todos.push(item);
       }
     },
-    deleteItem({ id, listType }: DeleteItemType) {
-      if (isEmpty(id)) {
-        return;
-      }
-      if (listType === "todo") {
-        this.todo = this.todo.filter((item) => item.id !== id);
-      }
-      if (listType === "doing") {
-        this.doing = this.doing.filter((item) => item.id !== id);
-      }
-      if (listType === "done") {
-        this.done = this.done.filter((item) => item.id !== id);
+    deleteItem({ id }: DeleteItemType) {
+      if (!isEmpty(id)) {
+        this.todos = this.todos.filter((item) => item.id !== id);
       }
     },
   },
