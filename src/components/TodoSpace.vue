@@ -5,6 +5,7 @@ import uniqueId from "lodash/uniqueId";
 import type { ListType } from "@/types";
 import { useListsStore } from "@/stores/lists";
 import TodoItem from "./TodoItem.vue";
+import DeleteItem from "./DeleteItem.vue";
 
 const props = defineProps<{
   listType: ListType;
@@ -32,10 +33,13 @@ const addNewItem = () => {
   <div class="space">
     <h2><slot name="name"></slot></h2>
 
-    <div v-for="item in list" :key="item.id">
+    <div v-for="item in list" :key="item.id" class="wrapper-item">
       <TodoItem>
         <template #name> {{ item.name }} </template>
       </TodoItem>
+      <DeleteItem>
+        <template #id></template>
+      </DeleteItem>
     </div>
 
     <TodoItem>
@@ -59,5 +63,18 @@ const addNewItem = () => {
 
 .space h2 {
   margin: 1rem;
+}
+
+.wrapper-item {
+  display: flex;
+}
+
+.wrapper-item:deep() .item {
+  flex: 1;
+  margin-right: 0;
+}
+.wrapper-item:deep() .delete-item {
+  flex: 0;
+  margin-left: 0;
 }
 </style>
