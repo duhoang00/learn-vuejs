@@ -10,4 +10,4 @@
 
 ### To-do list
 
-![to-do list](https://github.com/duhoang00/learn-vuejs/blob/main/src/assets/UI_todo_list.png?raw=true)
+![to-do list](https://github.com/duhoang00/learn-vuejs/blob/main/src/assets/UI_can_be_deleted.png?raw=true)
