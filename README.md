@@ -5,7 +5,7 @@
 - Pinia
 - Font-awesome
 - Lodash
-- Vercel for deployed
+- Vercel for deploying
 
 ## UI
 
