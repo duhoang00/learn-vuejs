@@ -3,7 +3,7 @@ import { ref, watch } from "vue";
 import uniqueId from "lodash/uniqueId";
 
 import type { ListType } from "@/types";
-import { useListsStore } from "@/stores/lists";
+// import { useListsStore } from "@/stores/lists";
 import TodoItem from "./TodoItem.vue";
 import DeleteItem from "./DeleteItem.vue";
 

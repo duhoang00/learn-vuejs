@@ -1,5 +1,6 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
+// import { createPinia } from "pinia";
+import { useListsStore } from "@/stores/lists";
 
 import App from "./App.vue";
 import router from "./router";
@@ -13,7 +14,8 @@ const app = createApp(App);
 library.add(faTrashCan);
 app.component("font-awesome-icon", FontAwesomeIcon);
 
-app.use(createPinia());
+// app.use(createPinia());
+app.use(useListsStore);
 app.use(router);
 
 app.mount("#app");
