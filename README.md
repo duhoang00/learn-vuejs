@@ -22,4 +22,3 @@
 ## Future work
 
 - Drag and drop todo (Haven't found any good lib that supports VueJS v3 and TS)
-- Save todo list (localStorage first)

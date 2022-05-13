@@ -18,10 +18,7 @@ const list = ref(listsStore.getTodos);
 watch(
   listsStore.$state,
   () => {
-    // is there a better way to re-render
     list.value = listsStore.getTodos;
-    // update later
-    // localStorage.setItem("piniaState", JSON.stringify(state));
   },
   { deep: true }
 );
