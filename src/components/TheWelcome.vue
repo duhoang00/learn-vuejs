@@ -50,7 +50,6 @@ import SupportIcon from "./icons/IconSupport.vue";
     <template #heading>Ecosystem</template>
 
     Get official tools and libraries for your project:
-    <a target="_blank" href="https://pinia.vuejs.org/">Pinia</a>,
     <a target="_blank" href="https://router.vuejs.org/">Vue Router</a>,
     <a target="_blank" href="https://test-utils.vuejs.org/">Vue Test Utils</a>,
     and

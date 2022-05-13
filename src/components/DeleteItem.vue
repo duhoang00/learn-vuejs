@@ -6,12 +6,8 @@ const props = defineProps<{
   item: TodoType;
 }>();
 
-const lists = useListsStore();
-
-const { deleteItem } = lists;
-
 const onDeleteItem = () => {
-  deleteItem({
+  useListsStore.commit("deleteItem", {
     id: props.item.id,
   });
 };

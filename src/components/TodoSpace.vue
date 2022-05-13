@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import uniqueId from "lodash/uniqueId";
 
 import type { ListType } from "@/types";
+// import { useListsStore } from "@/stores/lists";
 import { useListsStore } from "@/stores/lists";
 import TodoItem from "./TodoItem.vue";
 import DeleteItem from "./DeleteItem.vue";
@@ -11,17 +12,18 @@ const props = defineProps<{
   listType: ListType;
 }>();
 
-const listsStore = useListsStore();
+// const listsStore = useListsStore();
 
-const list = ref(listsStore.getTodos);
+const list = ref(useListsStore.state.todos);
+console.log({ list });
 
 watch(
-  listsStore.$state,
-  (state) => {
+  useListsStore.state,
+  () => {
     // is there a better way to re-render
-    list.value = listsStore.getTodos;
-    // update later
-    // localStorage.setItem("piniaState", JSON.stringify(state));
+    list.value = useListsStore.state.todos;
+    // update laters
+    // using localStorage
   },
   { deep: true }
 );
@@ -29,7 +31,7 @@ watch(
 const newItem = ref("");
 
 const addNewItem = () => {
-  listsStore.addNewItem({
+  useListsStore.commit("addNewItem", {
     item: {
       id: uniqueId("todo-"),
       name: newItem.value,
