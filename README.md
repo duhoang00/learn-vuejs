@@ -17,6 +17,7 @@
 
 - Create a todo
 - Delete a todo
+- Save to localStorage
   ![to-do list](https://github.com/duhoang00/learn-vuejs/blob/main/src/assets/UI_can_be_deleted.png?raw=true)
 
 ## Future work
