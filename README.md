@@ -2,7 +2,7 @@
 
 - VueJS (V3)
 - TypeScript
-- Pinia
+- Pinia // Vuex (check at branches)
 - Font-awesome
 - Lodash
 - Vercel for deploying
