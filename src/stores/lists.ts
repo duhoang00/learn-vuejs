@@ -6,15 +6,9 @@ import type { TodoType, AddNewItemType, DeleteItemType } from "@/types";
 export const useListsStore = defineStore({
   id: "lists",
   state: () => ({
-    // todo: [] as TodoType[],
-    // doing: [] as TodoType[],
-    // done: [] as TodoType[],
     todos: [] as TodoType[],
   }),
   getters: {
-    // getTodoList: (state) => state.todo,
-    // getDoingList: (state) => state.doing,
-    // getDoneList: (state) => state.done,
     getTodos: (state) => state.todos,
   },
   actions: {
